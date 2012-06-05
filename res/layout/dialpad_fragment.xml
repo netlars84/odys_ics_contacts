@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/top" android:paddingLeft="@dimen/dialpad_horizontal_margin" android:paddingRight="@dimen/dialpad_horizontal_margin" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:id="@id/digits_container" android:background="@drawable/dialpad_background" android:layout_width="fill_parent" android:layout_height="0.0px" android:layout_marginTop="@dimen/dialpad_vertical_margin" android:layout_weight="@integer/dialpad_layout_weight_digits">
+        <com.android.contacts.dialpad.DigitsEditText android:textAppearance="@style/DialtactsDigitsTextAppearance" android:textColor="?android:textColorPrimary" android:gravity="center" android:id="@id/digits" android:background="@android:color/transparent" android:nextFocusRight="@id/overflow_menu" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0" android:layout_alignParentLeft="true" />
+        <ImageButton android:id="@id/overflow_menu" android:background="?android:selectableItemBackground" android:nextFocusLeft="@id/digits" android:layout_width="48.0dip" android:layout_height="fill_parent" android:src="@drawable/ic_menu_overflow" android:layout_alignParentRight="true" android:contentDescription="@android:string/data_usage_restricted_title" />
+    </LinearLayout>
+    <include layout="@layout/dialpad" />
+    <View android:background="#66000000" android:layout_width="fill_parent" android:layout_height="@dimen/dialpad_vertical_margin" />
+    <include layout="@layout/dialpad_additional_buttons" />
+    <ListView android:id="@id/dialpadChooser" android:layout_width="fill_parent" android:layout_height="1.0dip" android:layout_weight="1.0" />
+</LinearLayout>
