@@ -94,6 +94,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.BROWSABLE" />
             </intent-filter>
             <intent-filter>
@@ -129,6 +130,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <category android:name="android.intent.category.APP_CONTACTS" />
             </intent-filter>
@@ -255,17 +257,20 @@
         </activity>
         <activity-alias android:label="@string/shortcutContact" android:icon="@mipmap/ic_launcher_shortcut_contact" android:name="ContactShortcut" android:targetActivity=".activities.ContactSelectionActivity">
             <intent-filter>
+                <action android:name="android.intent.action.CREATE_SHORTCUT" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity-alias>
         <activity-alias android:label="@string/shortcutDialContact" android:icon="@mipmap/ic_launcher_shortcut_directdial" android:name="alias.DialShortcut" android:enabled="@android:bool/config_sms_capable" android:targetActivity=".activities.ContactSelectionActivity">
             <intent-filter>
+                <action android:name="android.intent.action.CREATE_SHORTCUT" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.CAR_MODE" />
             </intent-filter>
         </activity-alias>
         <activity-alias android:label="@string/shortcutMessageContact" android:icon="@mipmap/ic_launcher_shortcut_directmessage" android:name="alias.MessageShortcut" android:enabled="@android:bool/config_sms_capable" android:targetActivity=".activities.ContactSelectionActivity">
             <intent-filter>
+                <action android:name="android.intent.action.CREATE_SHORTCUT" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity-alias>
@@ -347,6 +352,12 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <receiver android:label="@string/social_widget_label" android:name=".socialwidget.SocialWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/social_widget_info" />
+        </receiver>
         <receiver android:name=".calllog.CallLogReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.NEW_VOICEMAIL" />
